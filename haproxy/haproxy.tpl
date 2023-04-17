@@ -81,7 +81,7 @@ backend app
     balance     roundrobin
 	  {{ range services -}}
       {{- range service .Name }}
-      {{ if .Name | contains "node" }}
+      {{ if .Name | contains "web" }}
 	  server {{ .Name }} {{ .Address }}:{{ .Port }} check
       {{ end }}
       {{- end }}
