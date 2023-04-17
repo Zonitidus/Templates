@@ -79,10 +79,10 @@ backend static
 #---------------------------------------------------------------------
 backend app
     balance     roundrobin
-	  {{ range services -}}
+      {{ range services -}}
       {{- range service .Name }}
       {{ if .Name | contains "web" }}
-	  server {{ .Name }} {{ .Address }}:{{ .Port }} check
+      server {{ .Name }} {{ .Address }}:{{ .Port }} check
       {{ end }}
       {{- end }}
       {{ end -}}
